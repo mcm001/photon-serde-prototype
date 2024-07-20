@@ -17,9 +17,9 @@
 
 #pragma once
 
-#include "struct/vec2_struct.h"
+#include "struct/resultlist_struct.h"
 
-class Vec2 : public Vec2Struct {
+class ResultList : public ResultListStruct {
 public:
-  explicit Vec2(Vec2Struct data) : Vec2Struct(data) {}
+  explicit ResultList(ResultListStruct data) : ResultListStruct(data) {}
 };

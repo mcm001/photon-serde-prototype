@@ -17,9 +17,20 @@
 
 #pragma once
 
-#include "struct/vec2_struct.h"
+#include "Packet.h"
+#include "targeting/pnpresult.h"
 
-class Vec2 : public Vec2Struct {
-public:
-  explicit Vec2(Vec2Struct data) : Vec2Struct(data) {}
+template <> struct Struct<PnpResult> {
+  static PnpResult Unpack(Packet &packet) {
+    return PnpResultStruct{
+        .best = packet.Unpack<Vec2>(),
+        .alt = packet.Unpack<Vec2>(),
+        .ambiguity = packet.Unpack<double>(),
+    };
+  }
+  static void Pack(Packet &packet, const PnpResult &value) {
+    packet.Pack<Vec2>(value.best);
+    packet.Pack<Vec2>(value.alt);
+    packet.Pack<double>(value.ambiguity);
+  }
 };

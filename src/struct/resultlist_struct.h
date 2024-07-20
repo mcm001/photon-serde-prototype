@@ -17,9 +17,12 @@
 
 #pragma once
 
-#include "struct/vec2_struct.h"
+#include <optional>
+#include <vector>
 
-class Vec2 : public Vec2Struct {
-public:
-  explicit Vec2(Vec2Struct data) : Vec2Struct(data) {}
+#include "targeting/pnpresult.h"
+
+struct ResultListStruct {
+  std::vector<PnpResult> things;
+  std::optional<int> iteration;
 };
