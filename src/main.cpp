@@ -16,9 +16,6 @@
  */
 
 #include "Packet.h"
-#include "serde/pnpresult_serde.h"
-#include "serde/resultlist_serde.h"
-#include "serde/vec2_serde.h"
 #include "targeting/resultlist.h"
 
 int main() {

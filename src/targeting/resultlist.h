@@ -23,3 +23,6 @@ class ResultList : public ResultListStruct {
 public:
   explicit ResultList(ResultListStruct data) : ResultListStruct(data) {}
 };
+
+// Helps users be a bit lazier
+#include "serde/resultlist_serde.h"

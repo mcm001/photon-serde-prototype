@@ -25,3 +25,6 @@ public:
 
   double Ambiguity() const { return ambiguity; }
 };
+
+// Helps users be a bit lazier
+#include "serde/pnpresult_serde.h"
