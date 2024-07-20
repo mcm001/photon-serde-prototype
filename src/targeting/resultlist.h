@@ -21,7 +21,7 @@
 
 class ResultList : public ResultListStruct {
 public:
-  explicit ResultList(ResultListStruct data) : ResultListStruct(data) {}
+  explicit ResultList(ResultListStruct &&data) : ResultListStruct(data) {}
 };
 
 // Helps users be a bit lazier

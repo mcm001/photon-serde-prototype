@@ -21,7 +21,7 @@
 
 class PnpResult : public PnpResultStruct {
 public:
-  explicit PnpResult(PnpResultStruct data) : PnpResultStruct(data) {}
+  explicit PnpResult(PnpResultStruct &&data) : PnpResultStruct(data) {}
 
   double Ambiguity() const { return ambiguity; }
 };

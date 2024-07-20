@@ -21,7 +21,7 @@
 
 class Vec2 : public Vec2Struct {
 public:
-  explicit Vec2(Vec2Struct data) : Vec2Struct(data) {}
+  explicit Vec2(Vec2Struct &&data) : Vec2Struct(data) {}
 };
 
 // Helps users be a bit lazier

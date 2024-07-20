@@ -27,15 +27,14 @@ int main() {
 
   PnpResultStruct test2{Vec2{{100, 101}}, Vec2{{101, 102}}, -87};
 
-  std::vector<PnpResult> resultList{PnpResult{test}, PnpResult{test2}};
+  std::vector<PnpResult> resultList{PnpResult{std::move(test)},
+                                    PnpResult{std::move(test2)}};
 
-  ResultListStruct inner{resultList, 32};
-  ResultList list{inner};
+  ResultList list{ResultListStruct{std::move(resultList), 32}};
 
   packet.Pack<ResultList>(list);
 
   auto unpacked = packet.Unpack<ResultList>();
-  // packet.Pack<PnpResult>(unpacked);
 
   (void)unpacked;
   return 0;
