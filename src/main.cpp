@@ -16,11 +16,10 @@
  */
 
 #include "Packet.h"
-#include "targeting/resultlist.h"
-
-#include "serde/resultlist_serde.h"
 #include "serde/pnpresult_serde.h"
+#include "serde/resultlist_serde.h"
 #include "serde/vec2_serde.h"
+#include "targeting/resultlist.h"
 
 int main() {
   Packet packet;
@@ -33,7 +32,7 @@ int main() {
 
   std::vector<PnpResult> resultList{PnpResult{test}, PnpResult{test2}};
 
-  ResultListStruct inner{resultList, 34};
+  ResultListStruct inner{resultList, 32};
   ResultList list{inner};
 
   packet.Pack<ResultList>(list);

@@ -20,13 +20,16 @@
 #include "Packet.h"
 #include "targeting/pnpresult.h"
 
+// sub-class serde includes
+#include "vec2_serde.h"
+
 template <> struct Struct<PnpResult> {
   static PnpResult Unpack(Packet &packet) {
-    return PnpResultStruct{
+    return PnpResult{PnpResultStruct{
         .best = packet.Unpack<Vec2>(),
         .alt = packet.Unpack<Vec2>(),
         .ambiguity = packet.Unpack<double>(),
-    };
+    }};
   }
   static void Pack(Packet &packet, const PnpResult &value) {
     packet.Pack<Vec2>(value.best);
